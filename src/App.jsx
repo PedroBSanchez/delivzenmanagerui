@@ -14,25 +14,31 @@ function App() {
         <Route
           path="/pedidos"
           element={
-            <Sidebar>
-              <Pedidos />
-            </Sidebar>
+            <div className="page-background">
+              <Sidebar>
+                <Pedidos />
+              </Sidebar>
+            </div>
           }
         />
         <Route
           path="/cardapio"
           element={
-            <Sidebar>
-              <Cardapio />
-            </Sidebar>
+            <div className="page-background">
+              <Sidebar>
+                <Cardapio />
+              </Sidebar>
+            </div>
           }
         />
         <Route
           path="/historico"
           element={
-            <Sidebar>
-              <Historico />
-            </Sidebar>
+            <div className="page-background">
+              <Sidebar>
+                <Historico />
+              </Sidebar>
+            </div>
           }
         />
         <Route path="*" element={<Login />} />

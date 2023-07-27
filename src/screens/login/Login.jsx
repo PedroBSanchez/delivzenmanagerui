@@ -33,7 +33,6 @@ const Login = () => {
     await axios
       .request(options)
       .then((response) => {
-        console.log(response);
         setLoading(false);
         localStorage.setItem("tokenApi", response.data.token);
         localStorage.setItem("userEmail", response.data.user.email);

@@ -64,28 +64,40 @@ const Sidebar = ({ children }) => {
               className="sidebar-background justify-content-center"
             ></Offcanvas.Header>
             <Offcanvas.Body className="sidebar-background">
-              <div className="row justify-content-center text-center">
-                <div className="col">
-                  <img src={restaurantLogo} width={120} />
+              <div className="row justify-content-center text-center sidebar-background">
+                <div className="col sidebar-background">
+                  <img
+                    src={restaurantLogo}
+                    width={120}
+                    className="sidebar-background"
+                  />
                 </div>
               </div>
-              <div className="row text-center mb-5">
-                <Offcanvas.Title style={{ color: "white" }} className="mt-2">
+              <div className="row text-center mb-5 sidebar-background">
+                <Offcanvas.Title
+                  style={{ color: "white" }}
+                  className="mt-2 sidebar-background"
+                >
                   {import.meta.env.VITE_RESTAURANT_NAME}
                 </Offcanvas.Title>
               </div>
-              <hr style={{ color: "white" }} />
+              <hr style={{ color: "white" }} className="sidebar-background" />
               {linkPages.map((link, index) => {
                 return (
                   <div
-                    className="row text-start justify-content-center mt-3"
+                    className="row text-start justify-content-center mt-3 sidebar-background"
                     key={index}
                   >
-                    <div className="col-1">
-                      <img src={link.icon} width={27} />
+                    <div className="col-1 sidebar-background">
+                      <img
+                        src={link.icon}
+                        width={27}
+                        className="sidebar-background"
+                      />
                     </div>
-                    <div className="col-3 pt-2">
+                    <div className="col-3 pt-2 sidebar-background">
                       <h5
+                        className="sidebar-background"
                         style={{ color: "white", cursor: "pointer" }}
                         onClick={() => {
                           handleNavigate(link.route);

@@ -1,0 +1,13 @@
+.order-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-card-open {
+  background-color: #d7e4b2;
+}
+
+.order-card-transit {
+  background-color: #e7dcb6;
+}
