@@ -1,0 +1,31 @@
+.order-detail-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-detail-payment-icon {
+  border-radius: 10px;
+}
+
+.order-detail-payment-icon-pix {
+  background-color: #1c75b6;
+  color: white;
+}
+
+.order-detail-payment-icon-card {
+  background-color: #f47b0a;
+  color: white;
+}
+
+.order-detail-payment-icon-money {
+  background-color: #46ed89;
+  color: white;
+}
+
+.order-detail-item-amount {
+  background-color: #fa4a0c;
+  border-radius: 30px;
+  height: 80%;
+  width: 40px;
+}

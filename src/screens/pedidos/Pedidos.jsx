@@ -116,7 +116,7 @@ const Pedidos = () => {
         <div className="row">
           {orders.map((order, index) => {
             return (
-              <div key={index} className="col-md-4 col-sm-6 m-2">
+              <div key={index} className="col-md-5 col-sm-6 m-2">
                 <OrderCard
                   order={order}
                   handleChangeStatus={handleChangeStatus}

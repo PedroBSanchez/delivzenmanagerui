@@ -91,7 +91,7 @@ const Sidebar = ({ children }) => {
                     <div className="col-1 sidebar-background">
                       <img
                         src={link.icon}
-                        width={27}
+                        width={25}
                         className="sidebar-background"
                       />
                     </div>
