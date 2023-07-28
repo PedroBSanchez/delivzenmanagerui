@@ -5,12 +5,14 @@ import Login from "./screens/login/Login";
 import Cardapio from "./screens/cardapio/Cardapio";
 import Historico from "./screens/historico/Historico";
 import Sidebar from "./components/sidebar/Sidebar";
+import OrderDetails from "./screens/orderDetails/OrderDetails";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="*" element={<Login />} />
         <Route
           path="/pedidos"
           element={
@@ -41,7 +43,17 @@ function App() {
             </div>
           }
         />
-        <Route path="*" element={<Login />} />
+
+        <Route
+          path="/pedidodetalhado/:orderId"
+          element={
+            <div className="page-background">
+              <Sidebar>
+                <OrderDetails />
+              </Sidebar>
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
