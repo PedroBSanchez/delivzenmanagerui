@@ -6,6 +6,9 @@ import Cardapio from "./screens/cardapio/Cardapio";
 import Historico from "./screens/historico/Historico";
 import Sidebar from "./components/sidebar/Sidebar";
 import OrderDetails from "./screens/orderDetails/OrderDetails";
+import NewItem from "./screens/item/NewItem";
+import EditItem from "./screens/item/EditItem";
+import SidebarForms from "./components/sidebar/SidebarForms";
 
 function App() {
   return (
@@ -51,6 +54,26 @@ function App() {
               <Sidebar>
                 <OrderDetails />
               </Sidebar>
+            </div>
+          }
+        />
+        <Route
+          path="/novoitem"
+          element={
+            <div className="page-background">
+              <SidebarForms>
+                <NewItem />
+              </SidebarForms>
+            </div>
+          }
+        />
+        <Route
+          path="/editaritem/:itemId"
+          element={
+            <div className="page-background">
+              <SidebarForms>
+                <EditItem />
+              </SidebarForms>
             </div>
           }
         />

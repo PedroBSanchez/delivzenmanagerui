@@ -1,0 +1,17 @@
+.table-background {
+  background-color: white;
+
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.add-item-icon {
+  color: rgb(7, 148, 82);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-item-icon:hover {
+  transition: 0.5s;
+  color: rgb(5, 238, 129);
+}

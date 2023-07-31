@@ -18,10 +18,10 @@ const breakpoints = {
 
 import { verifyToken } from "../../shared/VerifyToken";
 
-const Sidebar = ({ children }) => {
+const SidebarForms = ({ children }) => {
   const isSmallScreen = useMediaQuery({ query: breakpoints.small });
   const navigate = useNavigate();
-  const [show, setShow] = useState(!isSmallScreen);
+  const [show, setShow] = useState(false);
   const offcanvasRef = useRef(null);
 
   const handleNavigate = (url) => {
@@ -61,7 +61,7 @@ const Sidebar = ({ children }) => {
             show={show}
             onHide={handleClose}
             scroll={false}
-            backdrop={false}
+            backdrop={true}
           >
             <Offcanvas.Header
               closeButton={isSmallScreen}
@@ -125,4 +125,4 @@ const Sidebar = ({ children }) => {
   );
 };
 
-export default Sidebar;
+export default SidebarForms;

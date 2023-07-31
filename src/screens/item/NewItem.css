@@ -1,0 +1,42 @@
+.add-item-icon {
+  color: rgb(7, 148, 82);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-item-icon:hover {
+  transition: 0.5s;
+  color: rgb(5, 238, 129);
+}
+
+.additionals-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trash-icon {
+  cursor: pointer;
+  color: rgb(161, 41, 41);
+  transition: 0.5s;
+}
+
+.trash-icon:hover {
+  color: rgb(255, 0, 0);
+  transition: 0.5s;
+}
+
+.button-salvar {
+  background-color: rgb(7, 148, 82);
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  border: none;
+  padding: 8px;
+  border-radius: 30px;
+}
+
+.button-salvar:hover {
+  transition: 0.5s;
+  background-color: rgb(5, 238, 129);
+}

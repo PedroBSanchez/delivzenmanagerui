@@ -1,0 +1,10 @@
+.trash-icon {
+  cursor: pointer;
+  color: rgb(161, 41, 41);
+  transition: 0.5s;
+}
+
+.trash-icon:hover {
+  color: rgb(255, 0, 0);
+  transition: 0.5s;
+}
