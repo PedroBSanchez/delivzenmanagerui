@@ -138,6 +138,7 @@ const Cardapio = () => {
                     <th>#</th>
                     <th>Nome</th>
                     <th>Valor</th>
+                    <th>Categoria</th>
                     <th colSpan={2}></th>
                   </tr>
                 </thead>
@@ -148,6 +149,7 @@ const Cardapio = () => {
                         <td>{index + 1}</td>
                         <td>{item.name}</td>
                         <td>R${brMoney(item.value)}</td>
+                        <td>{item.category}</td>
                         <td>
                           <FaPencilAlt
                             onClick={() => {

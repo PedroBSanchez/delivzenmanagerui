@@ -54,10 +54,17 @@ const CategoriesModal = ({
       .catch((error) => {
         setLoading(false);
         console.log(error);
-        Swal.fire({
-          title: "Erro ao criar categoria",
-          icon: "error",
-        });
+        if (error.response.status == 401) {
+          Swal.fire({
+            title: "Categoria já cadastrada",
+            icon: "error",
+          });
+        } else {
+          Swal.fire({
+            title: "Erro ao criar categoria",
+            icon: "error",
+          });
+        }
       });
   };
   const handleDeleteCategory = async (categoryId) => {

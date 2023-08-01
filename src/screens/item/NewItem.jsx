@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -6,16 +6,17 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "./NewItem.css";
 import Loading from "../../components/loading/Loading";
 
+import { NumericFormat } from "react-number-format";
 import Swal from "sweetalert2";
 import { BsPlusSquareFill } from "react-icons/bs";
 import { BiSolidTrash } from "react-icons/bi";
-import CurrencyInput from "react-currency-input-field";
+
 import CategoriesModal from "../../components/categoriesModal/CategoriesModal";
 import { brMoney } from "../../shared/BrMoney";
 
 const NewItem = () => {
   const navigate = useNavigate();
-  const currencyInputRef = useRef(null);
+
   const [loading, setLoading] = useState(false);
   const [modalCategories, setModalCategories] = useState(false);
   const handleCloseModalCategories = () => setModalCategories(false);
@@ -222,21 +223,22 @@ const NewItem = () => {
             <label>
               Valor<span style={{ color: "red" }}>*</span>
             </label>
-            <CurrencyInput
-              ref={currencyInputRef}
-              id="valueInput"
+            <NumericFormat
               className="form-control"
-              prefix="R$"
+              prefix={"R$"}
               decimalSeparator=","
-              groupSeparator="."
-              decimalsLimit={2}
-              maxLength={7}
-              allowNegativeValue={false}
-              allowDecimals={true}
-              onValueChange={(e) => {
-                let valueFormated = e.replace(",", ".");
-                setValue(parseFloat(valueFormated));
+              thousandSeparator="."
+              allowedDecimalSeparators={[","]}
+              decimalScale={2}
+              allowLeadingZeros
+              onChange={(e) => {
+                let format = e.target.value;
+                format = format.replace("R$", "");
+                format = format.replace(",", ".");
+                setValue(parseFloat(format));
               }}
+              maxLength={10}
+              value={value}
             />
           </div>
         </div>
@@ -282,21 +284,22 @@ const NewItem = () => {
             <label>
               Valor <span style={{ color: "red" }}>*</span>
             </label>
-            <CurrencyInput
-              ref={currencyInputRef}
-              id="additionalValueInput"
+            <NumericFormat
               className="form-control"
-              prefix="R$"
+              prefix={"R$"}
               decimalSeparator=","
-              groupSeparator="."
-              decimalsLimit={2}
-              maxLength={7}
-              allowNegativeValue={false}
-              allowDecimals={true}
-              onValueChange={(e) => {
-                let valueFormated = e.replace(",", ".");
-                setNewAddittionalValue(parseFloat(valueFormated));
+              thousandSeparator="."
+              decimalScale={2}
+              allowedDecimalSeparators={[","]}
+              allowLeadingZeros
+              onChange={(e) => {
+                let format = e.target.value;
+                format = format.replace("R$", "");
+                format = format.replace(",", ".");
+                setNewAddittionalValue(parseFloat(format));
               }}
+              maxLength={10}
+              value={newAdditionalValue}
             />
           </div>
           <div className="col-md-1 mt-2">
