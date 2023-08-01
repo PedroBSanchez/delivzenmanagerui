@@ -14,6 +14,7 @@ const CategoriesModal = ({
   handleOpen,
   categories,
   getCategories,
+  itemCategory,
 }) => {
   const [loading, setLoading] = useState(false);
   const [newCategory, setNewCategory] = useState("");
@@ -67,38 +68,56 @@ const CategoriesModal = ({
         }
       });
   };
-  const handleDeleteCategory = async (categoryId) => {
+  const handleDeleteCategory = async (categoryId, categoryName) => {
     const token = localStorage.getItem("tokenApi");
 
-    const options = {
-      method: "DELETE",
-      url: `${
-        import.meta.env.VITE_API_URL
-      }/api/categories/delete/${categoryId}`,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    setLoading(true);
-    await axios
-      .request(options)
-      .then((response) => {
-        setLoading(false);
-        getCategories();
-        Swal.fire({
-          title: "Categoria deletada com sucesso",
-          icon: "success",
-        });
-      })
-      .catch((error) => {
-        setLoading(false);
-        console.log(error);
-        Swal.fire({
-          title: "Erro ao deletar categoria",
-          icon: "error",
-        });
+    if (itemCategory && categoryName == itemCategory) {
+      return Swal.fire({
+        icon: "warning",
+        text: "Não é permitido deletar categoria do item a ser editado",
       });
+    }
+
+    Swal.fire({
+      title: "Deseja realmente deletar categoria?",
+      text: "Todos os itens dessa categoria serão deletados",
+      showDenyButton: true,
+      confirmButtonText: "Confirmar",
+      denyButtonText: `Cancelar`,
+      icon: "warning",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const options = {
+          method: "DELETE",
+          url: `${
+            import.meta.env.VITE_API_URL
+          }/api/categories/delete/${categoryId}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
+        setLoading(true);
+        await axios
+          .request(options)
+          .then((response) => {
+            setLoading(false);
+            getCategories();
+            Swal.fire({
+              title: "Categoria deletada com sucesso",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            setLoading(false);
+            console.log(error);
+            Swal.fire({
+              title: "Erro ao deletar categoria",
+              icon: "error",
+            });
+          });
+      }
+    });
   };
 
   return (
@@ -149,7 +168,7 @@ const CategoriesModal = ({
                     size={15}
                     className="trash-icon"
                     onClick={() => {
-                      handleDeleteCategory(element._id);
+                      handleDeleteCategory(element._id, element.name);
                     }}
                   />
                 </div>

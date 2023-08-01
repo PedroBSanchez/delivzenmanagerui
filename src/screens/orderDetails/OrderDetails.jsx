@@ -7,6 +7,7 @@ import { FaMoneyBillAlt } from "react-icons/fa";
 
 import "./OrderDetails.css";
 import Loading from "../../components/loading/Loading";
+import { brMoney } from "../../shared/BrMoney";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
@@ -70,7 +71,8 @@ const OrderDetails = () => {
                 </div>
                 <div className="col">
                   <p style={{ fontSize: "20px" }}>
-                    Valor total: R${order.totalValue}
+                    Valor total: R$
+                    {order.totalValue ? brMoney(order.totalValue) : ""}
                   </p>
                 </div>
               </div>
@@ -118,7 +120,7 @@ const OrderDetails = () => {
                     <div className="row">
                       <div className="col">
                         <p style={{ fontSize: "21px" }}>
-                          {item.name} R${item.value}
+                          {item.name} R${item.value ? brMoney(item.value) : ""}
                         </p>
                       </div>
                       <div className="col-2 justify-content-end">
@@ -138,7 +140,11 @@ const OrderDetails = () => {
                               <p
                                 style={{ fontSize: "15px" }}
                                 key={indexAdditional}
-                              >{`${additional.name} R$${additional.value}`}</p>
+                              >{`${additional.name} R$${
+                                additional.value
+                                  ? brMoney(additional.value)
+                                  : ""
+                              }`}</p>
                             );
                           })}
                       </div>
@@ -148,6 +154,23 @@ const OrderDetails = () => {
               </div>
             );
           })}
+
+        {order.observations && (
+          <>
+            <div className="row mt-5">
+              <div className="col">
+                <h5>Observação</h5>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="order-detail-card p-3">
+                  <p>{order?.observations}</p>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

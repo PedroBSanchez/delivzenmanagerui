@@ -129,6 +129,42 @@ const EditItem = () => {
     }
   };
 
+  const handleDeleteItem = async () => {
+    Swal.fire({
+      title: "Deseja realmente deletar item?",
+      showDenyButton: true,
+      confirmButtonText: "Confirmar",
+      denyButtonText: `Cancelar`,
+      icon: "warning",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const token = localStorage.getItem("tokenApi");
+
+        const options = {
+          method: "DELETE",
+          url: `${import.meta.env.VITE_API_URL}/api/items/delete/${itemId}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
+        setLoading(true);
+        await axios
+          .request(options)
+          .then((response) => {
+            Swal.fire({ title: "Item deletado com sucesso", icon: "success" });
+            setTimeout(function () {
+              navigate("/cardapio");
+            }, 1000);
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire({ title: "Falha ao deletar item", icon: "error" });
+          });
+      }
+    });
+  };
+
   const isValidItem = () => {
     let valid = true;
     if (!name) {
@@ -198,6 +234,7 @@ const EditItem = () => {
         handleClose={handleCloseModalCategories}
         categories={categories}
         getCategories={getCategories}
+        itemCategory={category}
       />
       <div className="contaienr-fluid">
         <h1>Editar Item</h1>
@@ -225,12 +262,20 @@ const EditItem = () => {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="col-1 mt-1">
+          <div className="col-md-1 mt-1">
             <BsPlusSquareFill
               size={35}
               className="add-item-icon"
               onClick={handleShowModalCategories}
             />
+          </div>
+          <div className="offset-md-3 col-md-1 mt-1">
+            <button
+              className="btn btn-sm btn-danger"
+              onClick={handleDeleteItem}
+            >
+              Deletar
+            </button>
           </div>
         </div>
         <div className="row mt-4">

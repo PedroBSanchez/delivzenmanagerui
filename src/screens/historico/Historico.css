@@ -1,0 +1,16 @@
+.search-icon {
+  cursor: pointer;
+  color: black;
+  transition: 0.5s;
+}
+
+.search-icon:hover {
+  color: gray;
+  transition: 0.5s;
+}
+
+.table-background {
+  background-color: white;
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}

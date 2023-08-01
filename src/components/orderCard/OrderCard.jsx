@@ -6,6 +6,7 @@ import { PiMagnifyingGlassDuotone } from "react-icons/pi";
 import { FaBars } from "react-icons/fa";
 
 import "./OrderCard.css";
+import { brMoney } from "../../shared/BrMoney";
 
 const OrderCard = (props) => {
   const navigate = useNavigate();
@@ -57,7 +58,8 @@ const OrderCard = (props) => {
       <div className="row">
         <div className="col">
           <p>
-            {props.order.client} <br /> <u>R${props.order.totalValue}</u> <br />
+            {props.order.client} <br />{" "}
+            <u>R${brMoney(props.order.totalValue)}</u> <br />
             Forma de pagamento: {props.order.paymentMethod}
           </p>
         </div>
