@@ -63,6 +63,8 @@ const OrderDetails = () => {
                   <p style={{ fontSize: "20px" }}>
                     {order.client} <br />
                     <span style={{ fontSize: "16px" }}>
+                      {order.phoneNumber}
+                      <br />
                       {`${order.address}, ${order.adressNumber}, ${order.neighborhood}`}
                       <br />
                       {order.complement}

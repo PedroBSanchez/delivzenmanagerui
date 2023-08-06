@@ -58,7 +58,7 @@ const OrderCard = (props) => {
       <div className="row">
         <div className="col">
           <p>
-            {props.order.client} <br />{" "}
+            {props.order.client} - {props.order.phoneNumber} <br />
             <u>R${brMoney(props.order.totalValue)}</u> <br />
             Forma de pagamento: {props.order.paymentMethod}
           </p>
