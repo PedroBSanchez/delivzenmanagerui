@@ -13,4 +13,4 @@ services:
       - VITE_RESTAURANT_NAME=${VITE_RESTAURANT_NAME}
       - VITE_RESTAURANT_TIME=${VITE_RESTAURANT_TIME}
     volumes:
-      - ./doofmanagerui/dist:/root/doofmanagerui/dist
+      - /root/doofmanagerui/dist:/app/dist
