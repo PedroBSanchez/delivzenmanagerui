@@ -11,4 +11,4 @@ RUN npm run build
 
 EXPOSE 5173
 
-CMD ["npm", "run", "start"]
+CMD ["npx", "http-server", "./dist", "-p 5173"]
