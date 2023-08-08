@@ -1,14 +1,17 @@
 
 FROM node:alpine
 
-WORKDIR /app/doofmanager
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 
-RUN npm install
 
 RUN npm run build
 
 EXPOSE 5173
 
-CMD ["npx", "http-server", "./dist", "-p 5173"]
+CMD ["npm", "start"]
