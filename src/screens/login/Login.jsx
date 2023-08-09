@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import Loading from "../../components/loading/Loading";
 import DoofLogo from "../../assets/doofLogo.png";
 import "./Login.css";
 
@@ -75,6 +76,7 @@ const Login = () => {
 
   return (
     <>
+      <Loading loading={loading} />
       <div className="container-fluid login-background">
         <div className="position-absolute top-50 start-50 translate-middle login-card p-4 col-md-4">
           <div className="row">
