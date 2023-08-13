@@ -60,7 +60,7 @@ const Sidebar = ({ children }) => {
           <Offcanvas
             show={show}
             onHide={handleClose}
-            scroll={false}
+            scroll={true}
             backdrop={false}
           >
             <Offcanvas.Header
